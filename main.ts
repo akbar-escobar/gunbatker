@@ -58,9 +58,14 @@ export class Main {
         }
 
         choices.forEach(choice => {
+
+            if (choice === "Batu") choice = "🪨"
+            if (choice === "Kertas") choice = "📄"
+            if (choice === "Gunting") choice = "✂️"
+
             const btn = document.createElement("button")
             btn.innerText = choice
-            btn.style.backgroundColor="yellow"
+            btn.style.backgroundColor = "brown"
             btn.style.width = "100px"
             btn.style.padding = "10px 20px"
             btn.style.fontSize = "18px"
@@ -69,7 +74,10 @@ export class Main {
                 comp.innerText = `komputer pilih: memilih...`
 
                 setTimeout(() => {
-                    const computer = getComputerChoice()
+                    let computer = getComputerChoice()
+                    if (computer === "Batu") computer = "🪨"
+                    if (computer === "Kertas") computer = "📄"
+                    if (computer === "Gunting") computer = "✂️"
                     const winner = checkWinner(choice, computer)
 
                     you.innerText = `kamu pilih: ${choice}`
